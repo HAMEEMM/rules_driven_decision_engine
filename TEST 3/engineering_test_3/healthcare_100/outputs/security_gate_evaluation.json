@@ -1,0 +1,4 @@
+{
+  "security_gate": "PASS",
+  "reason": "no critical vulnerabilities and no secrets detected"
+}

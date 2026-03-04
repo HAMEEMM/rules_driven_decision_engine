@@ -1,0 +1,5 @@
+{
+  "canary_split": "90/10",
+  "p95_ms": 390,
+  "error_rate_pct": 1.4
+}

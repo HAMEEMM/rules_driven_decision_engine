@@ -1,0 +1,7 @@
+{
+  "previous_active": "blue",
+  "new_active": "green",
+  "canary_gate": "PASS",
+  "promotion_completed": true,
+  "rollback_triggered": false
+}

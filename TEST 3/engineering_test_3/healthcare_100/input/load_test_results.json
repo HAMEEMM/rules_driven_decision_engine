@@ -1,0 +1,5 @@
+{
+  "throughput_rps": 305,
+  "p95_ms": 235,
+  "error_rate_pct": 0.6
+}

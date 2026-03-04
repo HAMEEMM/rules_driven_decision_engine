@@ -1,0 +1,27 @@
+{
+  "slo_definitions": {
+    "availability_pct": 99.9,
+    "p95_latency_ms": 300,
+    "error_rate_pct": 1
+  },
+  "alert_thresholds": {
+    "error_rate_warn_pct": 0.5,
+    "error_rate_critical_pct": 1,
+    "p95_latency_warn_ms": 250,
+    "p95_latency_critical_ms": 300,
+    "availability_critical_pct": 99.9
+  },
+  "monitoring_strategy": [
+    "canary_metrics_realtime",
+    "blue_green_comparison",
+    "error_budget_burn_rate",
+    "security_scan_on_deploy",
+    "load_gate_pre_promotion"
+  ],
+  "dashboards": [
+    "deployment_health",
+    "canary_comparison",
+    "slo_burn_rate"
+  ],
+  "on_call_escalation": "page_on_critical_alert"
+}

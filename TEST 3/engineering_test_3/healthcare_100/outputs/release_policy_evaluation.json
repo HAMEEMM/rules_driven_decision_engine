@@ -1,0 +1,8 @@
+{
+  "dataset_gate": "PASS",
+  "security_gate": "PASS",
+  "load_gate": "PASS",
+  "canary_gate": "PASS",
+  "promotion_allowed": true,
+  "overall_risk_level": "LOW"
+}

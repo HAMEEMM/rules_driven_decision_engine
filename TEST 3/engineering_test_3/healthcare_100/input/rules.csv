@@ -1,0 +1,8 @@
+rule_id,predicate,decision,priority
+H1,acuity_score >= 95,ED_NOW,1
+H2,acuity_score >= 80,URGENT_REVIEW,2
+H3,visit_type = telehealth AND acuity_score < 60,SELF_CARE,3
+H4,location = RURAL AND acuity_score >= 60,CLINIC_REVIEW,4
+H5,patient_group = immunocompromised AND acuity_score < 70,NURSE_CALL,5
+H6,acuity_score < 60 AND symptom_severity = mild,SELF_CARE,10
+H7,DEFAULT,ROUTINE_REVIEW,999

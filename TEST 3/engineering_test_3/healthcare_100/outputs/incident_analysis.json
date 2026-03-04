@@ -1,0 +1,7 @@
+{
+  "classification": "performance_regression",
+  "blast_radius": "10_percent_traffic",
+  "rollback_required": true,
+  "risk_level": "HIGH",
+  "estimated_user_impact": "moderate"
+}

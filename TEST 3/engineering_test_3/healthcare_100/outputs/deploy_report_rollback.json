@@ -1,0 +1,8 @@
+{
+  "previous_active": "blue",
+  "attempted_active": "green",
+  "canary_gate": "FAIL",
+  "promotion_completed": false,
+  "rollback_triggered": true,
+  "rollback_reason": "performance_threshold_exceeded"
+}

@@ -1,0 +1,14 @@
+strategy: rules_only
+thresholds:
+  p95_latency_max: 300
+  error_rate_max: 1.0
+security:
+  fail_on_critical: true
+  fail_on_secrets: true
+routing:
+  active_color: blue
+shadow:
+  mismatch_tolerance_pct: 1.0
+notes:
+  domain: healthcare
+  phi: none (synthetic)

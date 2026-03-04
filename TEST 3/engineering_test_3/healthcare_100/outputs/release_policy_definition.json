@@ -1,0 +1,8 @@
+{
+  "dataset_mismatch_tolerance_pct": 1,
+  "max_p95_latency_ms": 300,
+  "max_error_rate_pct": 1,
+  "fail_on_critical_vulns": true,
+  "fail_on_secrets": true,
+  "min_canary_duration_minutes": 2
+}

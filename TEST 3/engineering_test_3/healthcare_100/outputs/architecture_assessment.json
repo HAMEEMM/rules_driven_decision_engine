@@ -1,0 +1,8 @@
+{
+  "deployment_model": "blue_green_with_canary",
+  "control_plane": "policy_as_code",
+  "data_plane": "stateless_service",
+  "governance_model": "automated_gate_enforcement",
+  "gitops_alignment": true,
+  "config_drift_risk": "LOW"
+}
