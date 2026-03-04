@@ -1,4 +1,4 @@
-# Mayo Clinic – Digital Product Engineering Test 3
+# Digital Product Engineering Test 3
 
 ## Rules-Driven Decision Engine + Release Gate Simulator
 
@@ -23,15 +23,15 @@ No external dependencies. Pure Node.js (built-ins only). Outputs are written to
 Each of the 100 requests in `requests.jsonl` was evaluated against `rules.csv` in
 **strict priority order** (lowest priority number wins, first match exits):
 
-| Rule | Priority | Condition                                                 | Decision         |
-| ---- | -------- | --------------------------------------------------------- | ---------------- |
+| Rule | Priority | Condition                                                   | Decision           |
+| ---- | -------- | ----------------------------------------------------------- | ------------------ |
 | H1   | 1        | `acuity_score >= 95`                                      | `ED_NOW`         |
 | H2   | 2        | `acuity_score >= 80`                                      | `URGENT_REVIEW`  |
 | H3   | 3        | `visit_type = telehealth AND acuity_score < 60`           | `SELF_CARE`      |
 | H4   | 4        | `location = RURAL AND acuity_score >= 60`                 | `CLINIC_REVIEW`  |
 | H5   | 5        | `patient_group = immunocompromised AND acuity_score < 70` | `NURSE_CALL`     |
 | H6   | 10       | `acuity_score < 60 AND symptom_severity = mild`           | `SELF_CARE`      |
-| H7   | 999      | DEFAULT                                                   | `ROUTINE_REVIEW` |
+| H7   | 999      | DEFAULT                                                     | `ROUTINE_REVIEW` |
 
 Result: **100/100 decisions matched `expected_outputs.jsonl`** (0 mismatches).
 
@@ -120,8 +120,8 @@ monthly_error_budget_minutes = 30d × 24h × 60min × (1 − 0.999)
 Derived from the deployment model described across `decision.yaml`,
 `deployment_state.json`, and the canary/promotion workflow:
 
-| Field               | Value                        | Rationale                                     |
-| ------------------- | ---------------------------- | --------------------------------------------- |
+| Field                 | Value                          | Rationale                                     |
+| --------------------- | ------------------------------ | --------------------------------------------- |
 | `deployment_model`  | `blue_green_with_canary`     | Active/inactive slots + canary split          |
 | `control_plane`     | `policy_as_code`             | Rules and thresholds encoded in YAML/CSV      |
 | `data_plane`        | `stateless_service`          | No session affinity required for routing      |
@@ -133,18 +133,18 @@ Derived from the deployment model described across `decision.yaml`,
 
 ## Output File Index
 
-| File                             | Section | Description                                                   |
-| -------------------------------- | ------- | ------------------------------------------------------------- |
-| `decision_run_report.json`       | 1       | Summary: total requests, matches, mismatch %, config hash     |
+| File                               | Section | Description                                                    |
+| ---------------------------------- | ------- | -------------------------------------------------------------- |
+| `decision_run_report.json`       | 1       | Summary: total requests, matches, mismatch %, config hash      |
 | `decision_mismatches.jsonl`      | 1       | Per-case mismatches — written only if mismatches exist        |
-| `security_gate_evaluation.json`  | 2       | Vulnerability scan gate result + reason                       |
-| `load_gate_evaluation.json`      | 3       | Performance load test gate result + violations                |
+| `security_gate_evaluation.json`  | 2       | Vulnerability scan gate result + reason                        |
+| `load_gate_evaluation.json`      | 3       | Performance load test gate result + violations                 |
 | `deploy_report.json`             | 4       | Blue→Green promotion result (canary pass scenario)            |
 | `deploy_report_rollback.json`    | 5       | Blue→Green promotion result (canary fail / rollback scenario) |
-| `release_policy_definition.json` | 6       | Policy thresholds and configuration                           |
-| `release_policy_evaluation.json` | 6       | Gate evaluation results + promotion_allowed + risk level      |
-| `incident_analysis.json`         | 7       | Canary error spike classification and risk                    |
-| `observability_plan.json`        | 8       | SLO definitions, alert thresholds, monitoring strategy        |
-| `error_budget_calculation.json`  | 8       | Monthly error budget (43.2 min at 99.9% SLO)                  |
-| `architecture_assessment.json`   | 9       | Deployment and governance model                               |
-| `summary.txt`                    | Final   | Key=value summary for evaluator review                        |
+| `release_policy_definition.json` | 6       | Policy thresholds and configuration                            |
+| `release_policy_evaluation.json` | 6       | Gate evaluation results + promotion_allowed + risk level       |
+| `incident_analysis.json`         | 7       | Canary error spike classification and risk                     |
+| `observability_plan.json`        | 8       | SLO definitions, alert thresholds, monitoring strategy         |
+| `error_budget_calculation.json`  | 8       | Monthly error budget (43.2 min at 99.9% SLO)                   |
+| `architecture_assessment.json`   | 9       | Deployment and governance model                                |
+| `summary.txt`                    | Final   | Key=value summary for evaluator review                         |

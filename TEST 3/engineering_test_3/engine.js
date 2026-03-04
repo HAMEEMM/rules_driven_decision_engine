@@ -1,6 +1,6 @@
 'use strict';
 /**
- * Mayo Clinic – Digital Product Engineering Test 3
+ * Digital Product Engineering Test 3
  * Rules-Driven Decision Engine + Release Gate Simulator
  * Node.js (no external dependencies required)
  */
